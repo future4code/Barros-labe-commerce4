@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { DivFiltros } from "./style";
 
 export default function SecaoFiltros(props){

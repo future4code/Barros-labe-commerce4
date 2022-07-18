@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerProduto, Parametros, SeçãoPrincipal } from "./style";
+import { ContainerProduto } from "./style";
 import BotãoAdicionar from "../BotãoAdicionar/BotãoAdicionar";
 
 const Produtos = (props) => {
