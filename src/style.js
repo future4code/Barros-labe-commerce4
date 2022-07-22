@@ -49,3 +49,6 @@ export const Parametros = styled.div`
         margin-left: 5px;
         cursor: pointer;
     }`
+
+export const DivCarrinho=styled.div`
+`
