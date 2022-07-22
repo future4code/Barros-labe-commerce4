@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ListadeProdutos } from './ListaDeProdutos'
 import { EstiloLista, Parametros, SeçãoPrincipal } from "./style";
-import BotãoAdicionar from "../BotãoAdicionar/BotãoAdicionar";
 
 const SeçãoProdutos = () => {
     const [produtos, setProdutos] = useState(ListadeProdutos)
@@ -23,13 +22,38 @@ const SeçãoProdutos = () => {
             produtos.sort(ordernarOriginal)
     }
 
+
+    // ADICIONAR AO CARRINHO
+    /*
+    const AddProdutoCarrinho=(event)=>{
+        event.preventDefault()
+        const AtualizarCarrinho = [...produtos,{nome: ListadeProdutos.nome}]
+        setProdutos(AtualizarCarrinho)
+        console.log(produtos)
+    }
+    */
+/*
+    let carrinhoProdutos=[]
+    carrinhoProdutos = {carrinhoProdutos}
+
+    const AddProdutoCarrinho=(itemAdd)=>{
+        produtos.filter((item)=>{
+            console.log("teste " , item.id)
+            if(item.id === itemAdd){
+                return carrinhoProdutos.push(item)
+            }
+            return 0
+        })
+    setCarrinhoAdd([...CarrinhoAdd, carrinhoProdutos])
+    }
+*/
     const produtosAtualizados = produtos.map((item, index) => {
         return (
             <li key={index}>
                 <img src={item.imagem} alt={item.alt}/>
                 <h4>{item.nome}</h4>
                 <h3>R${item.valor}0</h3>
-                <BotãoAdicionar/>
+                <button onClick={()=>{AddProdutoCarrinho(item.id)}}>Adicionar</button>
             </li>
         )
     })
