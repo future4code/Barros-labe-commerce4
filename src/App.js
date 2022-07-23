@@ -15,9 +15,11 @@ function App() {
   const [nomeProduto, setNomeProduto]=useState("")
 
   const [carrinhoAdd, setCarrinhoAdd]= useState ([])
-  
-  let [contadorCarrinho, setContadorCarrinho] = useState(1)
+  const [carrinhoSoma, setCarrinhoSoma]= useState ([])
 
+
+  let [contadorCarrinho] = useState(1)
+   
   const crescente = (a, b) => {return a.valor - b.valor}
   const decrescente = (a, b) => {return b.valor - a.valor}
   const ordernarOriginal = (a, b) => {return a.id - b.id}
@@ -37,7 +39,7 @@ function App() {
     break
   }
 
-/*
+
   // Adicionar produtos no carrinho---------------------------------
   const AddProdutoCarrinho=(itemAdd)=>{
     const produtosCarrinho = produtos.filter((item)=>{
@@ -46,15 +48,13 @@ function App() {
       })
   setCarrinhoAdd([...carrinhoAdd, ...produtosCarrinho])
   }
-*/
-  //console.log(contadorCarrinho)
 
   // Adicionar produtos no carrinho---------------------------------
-  
+  /*
   const AddProdutoCarrinho=(itemAdd)=>{
 
     if(carrinhoAdd.includes(itemAdd)){
-      setContadorCarrinho(contadorCarrinho+1) 
+      return contadorCarrinho+1
 
     }else{
       const produtosCarrinho = produtos.filter((item)=>{  
@@ -65,21 +65,7 @@ function App() {
     setCarrinhoAdd([...carrinhoAdd, ...produtosCarrinho])
     }
   }
-
-  // contagem dos produtos no carrinho
-  /*
-  const incrementarProduto=(idProduto)=>{ 
-    const atualizarCarrinho=carrinhoAdd.filter((item, index)=>{
-
-      for (let i = 0; i < carrinhoAdd.length; i++){
-        if(carrinhoAdd.includes(item.id)){
-          return contadorCarrinho = i
-        }
-      }
-    })
-  setCarrinhoAdd(atualizarCarrinho)
-  }
- */
+*/
 
 
     // APAGAR PRODUTO -----------------------------------------------
@@ -98,7 +84,7 @@ function App() {
         produto={item.nome} 
         valor={item.valor}
         apagar={()=>{apagarProduto(item.id)}}
-        /> 
+        />
     )
 } ); 
 
@@ -154,6 +140,11 @@ function App() {
 
             <h1>Carrinho</h1>
             {addCarrinho}
+            
+            <div className='divSoma'>
+            <h3>Valor total R$ {carrinhoAdd.reduce((total, valor) => total + valor.valor, 0)}0</h3>
+            </div>
+            
           </DivCarrinho>
           
           
