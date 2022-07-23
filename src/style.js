@@ -51,4 +51,5 @@ export const Parametros = styled.div`
     }`
 
 export const DivCarrinho=styled.div`
+    
 `
