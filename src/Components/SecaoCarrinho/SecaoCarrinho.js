@@ -1,18 +1,18 @@
 import React from "react";
+import { DivTable } from "./style";
 
 export default function SecaoCarrinho(props){
 
-
     return(
- 
-            <table>
+        <div>
+            <DivTable>
                 <tr>
-                    <td>{props.quantidade}</td>
-                    <td>{props.produto}</td>
-                    <td>{props.valor}</td>
-                    <td><button onClick={props.apagar}>X</button></td>
+                    <td className="quantidade">{"x "+props.quantidade}</td>
+                    <td className="nome">{props.produto}</td>
+                    <td>{"-  R$ "+ props.valor  + "0"}</td>
+                    <td><button className="btn" onClick={props.apagar}>x</button></td>
                 </tr>
-            </table>
-            
+            </DivTable>
+        </div>
     )
 }

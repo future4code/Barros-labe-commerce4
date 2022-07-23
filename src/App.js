@@ -15,6 +15,8 @@ function App() {
   const [nomeProduto, setNomeProduto]=useState("")
 
   const [carrinhoAdd, setCarrinhoAdd]= useState ([])
+  
+  let [contadorCarrinho, setContadorCarrinho] = useState(1)
 
   const crescente = (a, b) => {return a.valor - b.valor}
   const decrescente = (a, b) => {return b.valor - a.valor}
@@ -35,16 +37,50 @@ function App() {
     break
   }
 
-
+/*
   // Adicionar produtos no carrinho---------------------------------
   const AddProdutoCarrinho=(itemAdd)=>{
-      //console.log(itemAdd)
     const produtosCarrinho = produtos.filter((item)=>{
           
             return item.id === itemAdd 
       })
   setCarrinhoAdd([...carrinhoAdd, ...produtosCarrinho])
   }
+*/
+  //console.log(contadorCarrinho)
+
+  // Adicionar produtos no carrinho---------------------------------
+  
+  const AddProdutoCarrinho=(itemAdd)=>{
+
+    if(carrinhoAdd.includes(itemAdd)){
+      setContadorCarrinho(contadorCarrinho+1) 
+
+    }else{
+      const produtosCarrinho = produtos.filter((item)=>{  
+        return item.id === itemAdd 
+
+      })
+
+    setCarrinhoAdd([...carrinhoAdd, ...produtosCarrinho])
+    }
+  }
+
+  // contagem dos produtos no carrinho
+  /*
+  const incrementarProduto=(idProduto)=>{ 
+    const atualizarCarrinho=carrinhoAdd.filter((item, index)=>{
+
+      for (let i = 0; i < carrinhoAdd.length; i++){
+        if(carrinhoAdd.includes(item.id)){
+          return contadorCarrinho = i
+        }
+      }
+    })
+  setCarrinhoAdd(atualizarCarrinho)
+  }
+ */
+
 
     // APAGAR PRODUTO -----------------------------------------------
     const apagarProduto=(idProduto)=>{ //id do produto
@@ -54,33 +90,17 @@ function App() {
     setCarrinhoAdd(atualizarCarrinho)
     }
 
-      // APAGAR PRODUTO -----------------------------------------------
-     /* const apagarProduto=(indexApagar)=>{
-        const atualizarCarrinho=carrinhoAdd.slice();
-        atualizarCarrinho.slice(indexApagar, 1)
-        setCarrinhoAdd(atualizarCarrinho)
-      }
-*/
-
-  // CARRINHO renderizar--------------------------------------------
-  //console.log(carrinhoAdd)
-  //function RendCarrinho 
+  //  renderizar na tela
   const addCarrinho = carrinhoAdd.map((item)=>{
-    //console.log(item.nome)
     return(
       <SecaoCarrinho 
-        quantidade={1} 
+        quantidade={contadorCarrinho} 
         produto={item.nome} 
         valor={item.valor}
         apagar={()=>{apagarProduto(item.id)}}
         /> 
     )
 } ); 
-
-
-
-
-
 
   return (
     <LayoutApp>
