@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Cabeçalho, LayoutApp, SeçõesLoja, Parametros, SeçãoPrincipal, DivCarrinho } from './style';
 import Produtos from './Components/Produtos/Produtos'
 import SecaoFiltros from './Components/SecaoFiltros/SecaoFiltros';
@@ -15,7 +15,8 @@ function App() {
   const [nomeProduto, setNomeProduto]=useState("")
 
   const [carrinhoAdd, setCarrinhoAdd]= useState ([])
-  const [carrinhoSoma, setCarrinhoSoma]= useState ([])
+  const [carrinhoSalvar, setCarrinhoSalvar] = useState([])
+  const [carrinhoRecuperar, setCarrinhoRecuperar] = useState([])
 
 
   let [contadorCarrinho] = useState(1)
@@ -39,7 +40,7 @@ function App() {
     break
   }
 
-
+/*
   // Adicionar produtos no carrinho---------------------------------
   const AddProdutoCarrinho=(itemAdd)=>{
     const produtosCarrinho = produtos.filter((item)=>{
@@ -48,13 +49,13 @@ function App() {
       })
   setCarrinhoAdd([...carrinhoAdd, ...produtosCarrinho])
   }
-
+*/
   // Adicionar produtos no carrinho---------------------------------
-  /*
+  
   const AddProdutoCarrinho=(itemAdd)=>{
 
     if(carrinhoAdd.includes(itemAdd)){
-      return contadorCarrinho+1
+      return contadorCarrinho++
 
     }else{
       const produtosCarrinho = produtos.filter((item)=>{  
@@ -65,7 +66,42 @@ function App() {
     setCarrinhoAdd([...carrinhoAdd, ...produtosCarrinho])
     }
   }
-*/
+
+// LOCAL STORAGE ----------------------------------------------------------
+
+  useEffect(
+    ()=>{
+      console.log("executando")
+
+      setCarrinhoSalvar(localStorage.getItem("carrinho"))
+
+    },[]
+  )
+
+    const salvarCarrinho=(event)=>{
+      event.preventDefault()
+
+    // converte array em string e coloca no local storage
+    localStorage.setItem("carrinho", JSON.stringify(carrinhoAdd))
+    const retornarCarrinho = localStorage.getItem("carrinho")
+    // converte o array em objetos novamente
+    const carrinhoRetornado = JSON.parse(retornarCarrinho)
+    console.log(carrinhoRetornado)
+
+    }
+
+// rend carrinho
+const addCarrinho = carrinhoAdd.map((item)=>{
+  return(
+    <SecaoCarrinho 
+      quantidade={contadorCarrinho} 
+      produto={item.nome} 
+      valor={item.valor}
+      apagar={()=>{apagarProduto(item.id)}}
+      />
+  )
+} ); 
+
 
 
     // APAGAR PRODUTO -----------------------------------------------
@@ -75,7 +111,7 @@ function App() {
       })
     setCarrinhoAdd(atualizarCarrinho)
     }
-
+/*
   //  renderizar na tela
   const addCarrinho = carrinhoAdd.map((item)=>{
     return(
@@ -87,7 +123,7 @@ function App() {
         />
     )
 } ); 
-
+*/
   return (
     <LayoutApp>
 
@@ -140,9 +176,12 @@ function App() {
 
             <h1>Carrinho</h1>
             {addCarrinho}
-            
+            {carrinhoRecuperar}
             <div className='divSoma'>
             <h3>Valor total R$ {carrinhoAdd.reduce((total, valor) => total + valor.valor, 0)}0</h3>
+            <button onClick={salvarCarrinho}>Salvar</button>
+            <button >Recuperar</button>
+
             </div>
             
           </DivCarrinho>

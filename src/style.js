@@ -20,7 +20,7 @@ export const Cabeçalho = styled.header`
 
 export const SeçõesLoja = styled.div`
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 20% 50% 28%;
     padding: 15px;
     height: 100%;
     gap: 10px;
@@ -51,5 +51,5 @@ export const Parametros = styled.div`
     }`
 
 export const DivCarrinho=styled.div`
-    
+
 `
