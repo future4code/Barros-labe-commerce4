@@ -46,6 +46,7 @@ Na lista de produtos, estão todas as camisetas disponíveis no site, e também 
 
 O carrinho lista todos os produtos que são adicionados ao clicar no seu botão correspondente. Em cada um dos produtos listados, é possível clicar em um botão para removê-lo do carrinho. Além disso, também mostra a soma total dos valores dos produtos selecionados.
 
+![Captura de tela de 2022-07-24 15-46-36](https://user-images.githubusercontent.com/102320940/180661507-d8ad4f2d-4fe5-4af8-992d-2f0fad1608dd.png)
 
 
 # Link do Surge
@@ -59,4 +60,5 @@ https://lying-paste.surge.sh/
  </ul>
  
  # Imagens do site
+![Captura de tela de 2022-07-24 15-42-28](https://user-images.githubusercontent.com/102320940/180661514-e78f42bf-458d-4d58-9127-efe158aeb042.png)
 
