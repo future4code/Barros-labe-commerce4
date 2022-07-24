@@ -15,5 +15,7 @@ export const DivFiltros=styled.div`
         padding-top: 8px;
         padding-bottom: 8px;
     }
-
+    input{
+        padding: 6px 10px;
+    }
 `
