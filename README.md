@@ -23,10 +23,13 @@ Neste projeto, desenvolvemos a página de uma empresa fíctica de E-commerce, em
   <li> <a href="https://github.com/future4code/Barros-labe-commerce4#lista-de-produtos"> Lista de Produtos </a> </li>
   <li> <a href="https://github.com/future4code/Barros-labe-commerce4#carrinho"> Carrinho </a> </li>
 </ul>
+![Captura de tela de 2022-07-24 15-42-28](https://user-images.githubusercontent.com/102320940/180661423-0b502620-6bd8-4a78-9086-e92a9305113c.png)
 
 ## Filtros
 
 Na seção de filtros, podemos filtrar a lista de produtos por valor mínimo, valor máximo e por nome. Além disso, também é possível filtrar por mais do que um parâmetro por vez.
+![Captura de tela de 2022-07-24 15-42-40](https://user-images.githubusercontent.com/102320940/180661435-b0fd71d1-0315-44b0-938d-4ca17e05cd54.png)
+
 
 ## Lista de Produtos
 
